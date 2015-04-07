@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TypefaceTextView">
+        <attr name="typeface_asset_textview" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TypefaceEditText">
+        <attr name="typeface_asset_edittext" format="string" />
+    </declare-styleable>
+</resources>
