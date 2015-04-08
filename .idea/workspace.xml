@@ -22,12 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3e7b79e-9b55-4d4a-871d-251116ded006" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/github_img.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/butterknife_5_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/build.gradle" afterPath="$PROJECT_DIR$/lib/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lib.iml" afterPath="$PROJECT_DIR$/lib/lib.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/raw/github_img.png" afterPath="$PROJECT_DIR$/app/src/main/res/raw/github_img.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypefaceView.iws" />
@@ -100,8 +95,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5808656">
-              <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.309795">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -2223,11 +2218,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428511908858</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updating readme file for maven deploy">
+      <created>1428512920365</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1428512920365</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1349" extended-state="0" />
+    <frame x="0" y="23" width="2560" height="1349" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2303,7 +2304,8 @@
     <MESSAGE value="adding gradle properties for maven" />
     <MESSAGE value="added edit end text views as well as placeholders for their attrs" />
     <MESSAGE value="added typeface files, typeface enums and attrs, and updated the demo app with bgr" />
-    <option name="LAST_COMMIT_MESSAGE" value="added typeface files, typeface enums and attrs, and updated the demo app with bgr" />
+    <MESSAGE value="updating readme file for maven deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating readme file for maven deploy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2542,8 +2544,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5808656">
-          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.309795">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding />
         </state>
       </provider>
