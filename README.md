@@ -3,6 +3,8 @@ TypefaceView
 
 TextView and EditText views for android which allow the user to set special typefaces; such as the Roboto typefaces (API 10+). 
 
+Pull requests are welcome if you would like to add other typefaces to this library.
+
 To include in your project, add this to your build.gradle file:
 
 ```
