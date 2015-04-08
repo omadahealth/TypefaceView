@@ -11,10 +11,18 @@ import android.widget.EditText;
 import java.util.Hashtable;
 
 /**
- * Created by oliviergoutay on 12/8/14.
+ * Created by stoyand & oliviergoutay on 4/7/14.
  */
 public class TypefaceEditText extends EditText {
+    /**
+     * A hash we use to hold multiple typefaces for views
+     */
     private static final Hashtable<String, Typeface> cache = new Hashtable<>();
+
+    /**
+     * The default typeface
+     */
+    public static final int DEFAULT_TYPEFACE = TypefaceType.ROBOTO_REGULAR.getValue();
 
     public TypefaceEditText(Context context) {
         super(context);
@@ -37,20 +45,23 @@ public class TypefaceEditText extends EditText {
         setCustomTypeface(context, attrs);
     }
 
+    /**
+     * Sets the typeface for the view
+     * @param context
+     * @param attrs
+     */
     private void setCustomTypeface(Context context, AttributeSet attrs) {
         //Typeface.createFromAsset doesn't work in the layout editor. Skipping...
         if (isInEditMode() || attrs == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             return;
         }
 
-        TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceEditText);
-        String fontName = styledAttrs.getString(R.styleable.TypefaceEditText_typeface_asset_edittext);
+        TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceView);
+        Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_typeface, DEFAULT_TYPEFACE);
         styledAttrs.recycle();
 
-        if (fontName != null) {
-            Typeface typeface = getFont(context, fontName);
-            setTypeface(typeface);
-        }
+        Typeface typeface = getFont(context, TypefaceType.getTypeface(fontInt).getAssetFileName());
+        setTypeface(typeface);
     }
 
     /**

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TypefaceTextView">
-        <attr name="typeface_asset_textview" format="string" />
+    <declare-styleable name="TypefaceView">
+        <attr name="typeface" format="enum">
+            <enum name="roboto_regular" value="0"/>
+            <enum name="roboto_medium" value="1"/>
+            <enum name="roboto_light" value="2"/>
+            <enum name="roboto_bold" value="3"/>
+            <enum name="roboto_thin" value="4"/>
+        </attr>
     </declare-styleable>
 
-    <declare-styleable name="TypefaceEditText">
-        <attr name="typeface_asset_edittext" format="string" />
-    </declare-styleable>
 </resources>
