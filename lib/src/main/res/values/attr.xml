@@ -8,6 +8,7 @@
             <enum name="roboto_bold" value="3"/>
             <enum name="roboto_thin" value="4"/>
         </attr>
+        <attr name="html" format="boolean"/>
     </declare-styleable>
 
 </resources>

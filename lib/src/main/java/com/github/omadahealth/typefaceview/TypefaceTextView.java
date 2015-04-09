@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -24,25 +25,39 @@ public class TypefaceTextView extends TextView {
      */
     public static final int DEFAULT_TYPEFACE = TypefaceType.ROBOTO_REGULAR.getValue();
 
+    /**
+     * True if the supplied text should be displayed as html
+     */
+    private boolean mHtmlEnabled;
+
     public TypefaceTextView(Context context) {
         super(context);
-        setCustomTypeface(context, null);
+        loadAttributes(context, null);
     }
 
     public TypefaceTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setCustomTypeface(context, attrs);
+        loadAttributes(context, attrs);
     }
 
     public TypefaceTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setCustomTypeface(context, attrs);
+        loadAttributes(context, attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TypefaceTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        setCustomTypeface(context, attrs);
+        loadAttributes(context, attrs);
+    }
+
+    @Override
+    public void setText(CharSequence text, BufferType type) {
+        if(mHtmlEnabled){
+            super.setText(Html.fromHtml(text.toString()), type);
+        }else{
+            super.setText(text, type);
+        }
     }
 
     /**
@@ -50,7 +65,7 @@ public class TypefaceTextView extends TextView {
      * @param context
      * @param attrs
      */
-    private void setCustomTypeface(Context context, AttributeSet attrs) {
+    private void loadAttributes(Context context, AttributeSet attrs) {
         //Typeface.createFromAsset doesn't work in the layout editor. Skipping...
         if (isInEditMode() || attrs == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             return;
@@ -58,6 +73,10 @@ public class TypefaceTextView extends TextView {
 
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceView);
         Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_typeface, DEFAULT_TYPEFACE);
+        mHtmlEnabled = styledAttrs.getBoolean(R.styleable.TypefaceView_html, false);
+        if(mHtmlEnabled){
+            setText(getText());
+        }
         styledAttrs.recycle();
 
         Typeface typeface = getFont(context, TypefaceType.getTypeface(fontInt).getAssetFileName());
