@@ -9,7 +9,7 @@ To include in your project, add this to your build.gradle file:
 
 ```
    //TypefaceView
-   compile 'com.github.omadahealth.typefaceview:typefaceview:1.0.0@aar'
+   compile 'com.github.omadahealth.typefaceview:typefaceview:1.1.0@aar'
 ```
 ![Image](app/src/main/res/raw/github_img.png)
 
@@ -35,10 +35,11 @@ Look at the example app for a live example on how to use the library.
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="Roboto Thin"
-        app:typeface="roboto_thin" />
+        app:typeface="roboto_thin"
+        app:html="false"/>
 ```
 
-#### Available typefaces in attr.xml that you can set in your app:typeface="..."
+#### Available typefaces, html... in attr.xml that you can set in your app:typeface="..."
 
 ```
         <attr name="typeface" format="enum">
@@ -48,6 +49,7 @@ Look at the example app for a live example on how to use the library.
             <enum name="roboto_bold" value="3"/>
             <enum name="roboto_thin" value="4"/>
         </attr>
+        <attr name="html" format="boolean"/>
 ```
 ========
 

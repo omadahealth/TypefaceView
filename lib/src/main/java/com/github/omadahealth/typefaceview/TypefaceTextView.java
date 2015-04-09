@@ -26,6 +26,11 @@ public class TypefaceTextView extends TextView {
     public static final int DEFAULT_TYPEFACE = TypefaceType.ROBOTO_REGULAR.getValue();
 
     /**
+     * Default html false
+     */
+    public static final boolean DEFAULT_HTML_ENABLED = false;
+
+    /**
      * True if the supplied text should be displayed as html
      */
     private boolean mHtmlEnabled;
@@ -73,7 +78,7 @@ public class TypefaceTextView extends TextView {
 
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceView);
         Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_typeface, DEFAULT_TYPEFACE);
-        mHtmlEnabled = styledAttrs.getBoolean(R.styleable.TypefaceView_html, false);
+        mHtmlEnabled = styledAttrs.getBoolean(R.styleable.TypefaceView_html, DEFAULT_HTML_ENABLED);
         if(mHtmlEnabled){
             setText(getText());
         }
