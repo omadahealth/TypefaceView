@@ -9,7 +9,7 @@ To include in your project, add this to your build.gradle file:
 
 ```
    //TypefaceView
-   compile 'com.github.omadahealth.typefaceview:typefaceview:1.1.0@aar'
+   compile 'com.github.omadahealth.typefaceview:typefaceview:1.2.0@aar'
 ```
 ![Image](app/src/main/res/raw/github_img.png)
 

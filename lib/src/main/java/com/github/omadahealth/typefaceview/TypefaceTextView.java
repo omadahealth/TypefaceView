@@ -31,6 +31,11 @@ public class TypefaceTextView extends TextView {
     public static final boolean DEFAULT_HTML_ENABLED = false;
 
     /**
+     * The current typeface that the font is set to
+     */
+    private TypefaceType mCurrentTypeface = TypefaceType.ROBOTO_REGULAR;
+
+    /**
      * True if the supplied text should be displayed as html
      */
     private boolean mHtmlEnabled;
@@ -84,7 +89,8 @@ public class TypefaceTextView extends TextView {
         }
         styledAttrs.recycle();
 
-        Typeface typeface = getFont(context, TypefaceType.getTypeface(fontInt).getAssetFileName());
+        mCurrentTypeface = TypefaceType.getTypeface(fontInt);
+        Typeface typeface = getFont(context, mCurrentTypeface.getAssetFileName());
         setTypeface(typeface);
     }
 
@@ -103,5 +109,12 @@ public class TypefaceTextView extends TextView {
             }
             return cache.get(fontName);
         }
+    }
+
+    /**
+     * Returns the currently set typeface of this view
+     */
+    public TypefaceType getCurrentTypeface(){
+        return mCurrentTypeface;
     }
 }

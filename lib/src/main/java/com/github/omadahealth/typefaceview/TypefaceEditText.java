@@ -20,6 +20,11 @@ public class TypefaceEditText extends EditText {
     private static final Hashtable<String, Typeface> cache = new Hashtable<>();
 
     /**
+     * The current typeface that the font is set to
+     */
+    private TypefaceType mCurrentTypeface = TypefaceType.ROBOTO_REGULAR;
+
+    /**
      * The default typeface
      */
     public static final int DEFAULT_TYPEFACE = TypefaceType.ROBOTO_REGULAR.getValue();
@@ -60,7 +65,8 @@ public class TypefaceEditText extends EditText {
         Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_typeface, DEFAULT_TYPEFACE);
         styledAttrs.recycle();
 
-        Typeface typeface = getFont(context, TypefaceType.getTypeface(fontInt).getAssetFileName());
+        mCurrentTypeface = TypefaceType.getTypeface(fontInt);
+        Typeface typeface = getFont(context, mCurrentTypeface.getAssetFileName());
         setTypeface(typeface);
     }
 
@@ -79,5 +85,12 @@ public class TypefaceEditText extends EditText {
             }
             return cache.get(fontName);
         }
+    }
+
+    /**
+     * Returns the currently set typeface of this view
+     */
+    public TypefaceType getCurrentTypeface(){
+        return mCurrentTypeface;
     }
 }
