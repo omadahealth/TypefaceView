@@ -35,21 +35,21 @@ Look at the example app for a live example on how to use the library.
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="Roboto Thin"
-        app:typeface="roboto_thin"
-        app:html="false"/>
+        app:tv_typeface="roboto_thin"
+        app:tv_html="false"/>
 ```
 
 #### Available typefaces, html... in attr.xml that you can set in your app:typeface="..."
 
 ```
-        <attr name="typeface" format="enum">
+        <attr name="tv_typeface" format="enum">
             <enum name="roboto_regular" value="0"/>
             <enum name="roboto_medium" value="1"/>
             <enum name="roboto_light" value="2"/>
             <enum name="roboto_bold" value="3"/>
             <enum name="roboto_thin" value="4"/>
         </attr>
-        <attr name="html" format="boolean"/>
+        <attr name="tv_html" format="boolean"/>
 ```
 ========
 

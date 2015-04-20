@@ -82,8 +82,8 @@ public class TypefaceTextView extends TextView {
         }
 
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceView);
-        Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_typeface, DEFAULT_TYPEFACE);
-        mHtmlEnabled = styledAttrs.getBoolean(R.styleable.TypefaceView_html, DEFAULT_HTML_ENABLED);
+        Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_tv_typeface, DEFAULT_TYPEFACE);
+        mHtmlEnabled = styledAttrs.getBoolean(R.styleable.TypefaceView_tv_html, DEFAULT_HTML_ENABLED);
         if(mHtmlEnabled){
             setText(getText());
         }

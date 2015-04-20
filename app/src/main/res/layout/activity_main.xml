@@ -29,7 +29,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="Roboto Medium"
-        app:typeface="roboto_medium" />
+        app:tv_typeface="roboto_medium" />
 
     <com.github.omadahealth.typefaceview.TypefaceTextView
         android:id="@+id/type3"
@@ -41,7 +41,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="Roboto Bold"
-        app:typeface="roboto_bold" />
+        app:tv_typeface="roboto_bold" />
 
     <com.github.omadahealth.typefaceview.TypefaceTextView
         android:id="@+id/type4"
@@ -53,7 +53,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="Roboto Light"
-        app:typeface="roboto_light" />
+        app:tv_typeface="roboto_light" />
 
     <com.github.omadahealth.typefaceview.TypefaceTextView
         android:id="@+id/type5"
@@ -65,7 +65,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="Roboto Thin"
-        app:typeface="roboto_thin" />
+        app:tv_typeface="roboto_thin" />
 
     <com.github.omadahealth.typefaceview.TypefaceTextView
         android:id="@+id/type6"
@@ -79,7 +79,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size"
         android:text="@string/html_string"
-        app:typeface="roboto_thin"
-        app:html="true"/>
+        app:tv_typeface="roboto_thin"
+        app:tv_html="true"/>
 
 </LinearLayout>

@@ -62,7 +62,7 @@ public class TypefaceEditText extends EditText {
         }
 
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceView);
-        Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_typeface, DEFAULT_TYPEFACE);
+        Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_tv_typeface, DEFAULT_TYPEFACE);
         styledAttrs.recycle();
 
         mCurrentTypeface = TypefaceType.getTypeface(fontInt);
