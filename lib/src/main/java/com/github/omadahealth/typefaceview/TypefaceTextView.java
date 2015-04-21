@@ -71,6 +71,16 @@ public class TypefaceTextView extends TextView {
     }
 
     /**
+     * Sets {@link #mHtmlEnabled}, and calls {@link #setText(CharSequence, BufferType)}
+     * @param text The text
+     * @param html True if text is html
+     */
+    public void setText(CharSequence text, boolean html){
+        mHtmlEnabled = html;
+        setText(text, null);
+    }
+
+    /**
      * Sets the typeface for the view
      * @param context
      * @param attrs
