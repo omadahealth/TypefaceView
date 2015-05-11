@@ -6,7 +6,10 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.widget.EditText;
+
+import com.github.omadahealth.typefaceview.interfaces.EditTextOnKeyImeInterface;
 
 import java.util.Hashtable;
 
@@ -23,6 +26,13 @@ public class TypefaceEditText extends EditText {
      * The current typeface that the font is set to
      */
     private TypefaceType mCurrentTypeface = TypefaceType.ROBOTO_REGULAR;
+
+    /**
+     * The interface to call in {@link #onKeyPreIme(int, KeyEvent)}.
+     * If you handled the event, return true. If you want to allow the
+     * event to be handled by the next receiver, return false.
+     */
+    private EditTextOnKeyImeInterface mOnKeyCallback;
 
     /**
      * The default typeface
@@ -48,6 +58,17 @@ public class TypefaceEditText extends EditText {
     public TypefaceEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         setCustomTypeface(context, attrs);
+    }
+
+    @Override
+    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
+        //If you handled the event, return true. If you want to allow
+        //the event to be handled by the next receiver, return false.
+        if(mOnKeyCallback != null){
+            return mOnKeyCallback.onKeyPreIme(keyCode, event);
+        }
+
+        return super.onKeyPreIme(keyCode, event);
     }
 
     /**
@@ -92,5 +113,20 @@ public class TypefaceEditText extends EditText {
      */
     public TypefaceType getCurrentTypeface(){
         return mCurrentTypeface;
+    }
+
+    /**
+     * @return the the {@link #mOnKeyCallback}
+     */
+    public EditTextOnKeyImeInterface getOnKeyCallback() {
+        return mOnKeyCallback;
+    }
+
+    /**
+     * Sets the {@link #mOnKeyCallback} that is called in {@link #onKeyPreIme(int, KeyEvent)}
+     * @param onKeyCallback
+     */
+    public void setOnKeyCallback(EditTextOnKeyImeInterface onKeyCallback) {
+        this.mOnKeyCallback = onKeyCallback;
     }
 }
