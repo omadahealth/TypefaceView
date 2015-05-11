@@ -7,5 +7,11 @@ import android.view.KeyEvent;
  */
 public interface EditTextOnKeyImeInterface {
 
+    /**
+     * Set to be called in {@link com.github.omadahealth.typefaceview.TypefaceEditText#onKeyPreIme(int, KeyEvent)}
+     * @param keyCode
+     * @param event
+     * @return
+     */
     boolean onKeyPreIme(int keyCode, KeyEvent event);
 }
