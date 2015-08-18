@@ -1,9 +1,12 @@
 package com.github.omadahealth.typeface;
 
-import android.support.v7.app.ActionBarActivity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.github.omadahealth.typeface.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -11,7 +14,15 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        /**
+         * Library supports the new gradle 1.3 plugin data binding MvvM framework.
+         * For more information {@link https://developer.android.com/tools/data-binding/guide.html}
+         */
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        BindingTV medium = new BindingTV("roboto_medium", false);
+        BindingTV html = new BindingTV("roboto_thin", true);
+        binding.setTypeface(medium);
+        binding.setHtml(html);
     }
 
     @Override

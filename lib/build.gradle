@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.android.databinding'
 
 android {
     compileSdkVersion 22
@@ -21,6 +22,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
+
 }
 
 apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

@@ -3,6 +3,7 @@ package com.github.omadahealth.typefaceview;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.databinding.BindingAdapter;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -106,6 +107,18 @@ public class TypefaceEditText extends EditText {
             }
             return cache.get(fontName);
         }
+    }
+
+    /**
+     * Data-binding method for custom attribute bind:tv_typeface to be set
+     * @param editText The instance of the object to set value on
+     * @param type The string name of the typeface, same as in xml
+     */
+    @BindingAdapter("bind:tv_typeface")
+    public static void setCustomTypeface(TypefaceEditText editText, String type) {
+        editText.mCurrentTypeface = TypefaceType.getTypeface(type != null ? type : "");
+        Typeface typeface = getFont(editText.getContext(), editText.mCurrentTypeface.getAssetFileName());
+        editText.setTypeface(typeface);
     }
 
     /**

@@ -3,6 +3,7 @@ package com.github.omadahealth.typefaceview;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.databinding.BindingAdapter;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Html;
@@ -63,25 +64,51 @@ public class TypefaceTextView extends TextView {
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        if(mHtmlEnabled){
+        if (mHtmlEnabled) {
             super.setText(Html.fromHtml(text.toString()), type);
-        }else{
+        } else {
             super.setText(text, type);
         }
     }
 
     /**
+     * Data-binding method for custom attribute bind:tv_typeface to be set
+     * @param textView The instance of the object to set value on
+     * @param type The string name of the typeface, same as in xml
+     */
+    @BindingAdapter("bind:tv_typeface")
+    public static void setCustomTypeface(TypefaceTextView textView, String type) {
+        textView.mCurrentTypeface = TypefaceType.getTypeface(type != null ? type : "");
+        Typeface typeface = getFont(textView.getContext(), textView.mCurrentTypeface.getAssetFileName());
+        textView.setTypeface(typeface);
+    }
+
+    /**
+     * Data-binding method for custom attribute bind:tv_html to be set
+     * @param textView The instance of the object to set value on
+     * @param isHtml True if html text, false otherwise
+     */
+    @BindingAdapter("bind:tv_html")
+    public static void setCustomHtml(TypefaceTextView textView, Boolean isHtml) {
+        isHtml = isHtml != null ? isHtml : false;
+        textView.mHtmlEnabled = isHtml;
+        textView.setText(textView.getText());
+    }
+
+    /**
      * Sets {@link #mHtmlEnabled}, and calls {@link #setText(CharSequence, BufferType)}
+     *
      * @param text The text
      * @param html True if text is html
      */
-    public void setText(CharSequence text, boolean html){
+    public void setText(CharSequence text, boolean html) {
         mHtmlEnabled = html;
         setText(text, null);
     }
 
     /**
      * Sets the typeface for the view
+     *
      * @param context
      * @param attrs
      */
@@ -94,7 +121,7 @@ public class TypefaceTextView extends TextView {
         TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.TypefaceView);
         Integer fontInt = styledAttrs.getInt(R.styleable.TypefaceView_tv_typeface, DEFAULT_TYPEFACE);
         mHtmlEnabled = styledAttrs.getBoolean(R.styleable.TypefaceView_tv_html, DEFAULT_HTML_ENABLED);
-        if(mHtmlEnabled){
+        if (mHtmlEnabled) {
             setText(getText());
         }
         styledAttrs.recycle();
@@ -124,7 +151,7 @@ public class TypefaceTextView extends TextView {
     /**
      * Returns the currently set typeface of this view
      */
-    public TypefaceType getCurrentTypeface(){
+    public TypefaceType getCurrentTypeface() {
         return mCurrentTypeface;
     }
 }
