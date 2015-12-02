@@ -12,10 +12,22 @@
 bin/
 gen/
 
-# Gradle files
-.gradle/
-build/
+# Built application files
 /*/build/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle generated files
+.gradle/
+
+# Signing files
+.signing/
+
+# User-specific configurations
+.idea/
+*.iml
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -25,3 +37,6 @@ proguard/
 
 # Log Files
 *.log
+
+
+
