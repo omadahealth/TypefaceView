@@ -24,6 +24,11 @@ public class TypefaceEditText extends EditText {
     private static final Hashtable<String, Typeface> cache = new Hashtable<>();
 
     /**
+     * The default typeface
+     */
+    public static int DEFAULT_TYPEFACE;
+
+    /**
      * The current typeface that the font is set to
      */
     private TypefaceType mCurrentTypeface = TypefaceType.ROBOTO_REGULAR;
@@ -35,10 +40,6 @@ public class TypefaceEditText extends EditText {
      */
     private EditTextOnKeyImeInterface mOnKeyCallback;
 
-    /**
-     * The default typeface
-     */
-    public static final int DEFAULT_TYPEFACE = TypefaceType.ROBOTO_REGULAR.getValue();
 
     public TypefaceEditText(Context context) {
         super(context);
@@ -78,6 +79,8 @@ public class TypefaceEditText extends EditText {
      * @param attrs
      */
     private void setCustomTypeface(Context context, AttributeSet attrs) {
+        DEFAULT_TYPEFACE = TypefaceType.getDefaultTypeface(context);
+
         //Typeface.createFromAsset doesn't work in the layout editor. Skipping...
         if (isInEditMode() || attrs == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             return;

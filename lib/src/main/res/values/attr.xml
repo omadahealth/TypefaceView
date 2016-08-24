@@ -7,6 +7,10 @@
             <enum name="roboto_light" value="2"/>
             <enum name="roboto_bold" value="3"/>
             <enum name="roboto_thin" value="4"/>
+            <enum name="avenir_regular" value="5"/>
+            <enum name="avenir_medium" value="6"/>
+            <enum name="avenir_demi" value="7"/>
+            <enum name="avenir_bold" value="8"/>
         </attr>
         <attr name="tv_html" format="boolean"/>
     </declare-styleable>
