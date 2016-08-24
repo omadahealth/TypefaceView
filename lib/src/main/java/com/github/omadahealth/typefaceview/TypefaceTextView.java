@@ -24,7 +24,7 @@ public class TypefaceTextView extends TextView {
     /**
      * The default typeface
      */
-    public static final int DEFAULT_TYPEFACE = TypefaceType.ROBOTO_REGULAR.getValue();
+    public static int DEFAULT_TYPEFACE;
 
     /**
      * Default html false
@@ -113,6 +113,8 @@ public class TypefaceTextView extends TextView {
      * @param attrs
      */
     private void loadAttributes(Context context, AttributeSet attrs) {
+        DEFAULT_TYPEFACE = TypefaceType.getDefaultTypeface(context);
+
         //Typeface.createFromAsset doesn't work in the layout editor. Skipping...
         if (isInEditMode() || attrs == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             return;

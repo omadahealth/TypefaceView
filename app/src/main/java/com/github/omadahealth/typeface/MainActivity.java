@@ -14,6 +14,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         /**
          * Library supports the new gradle 1.3 plugin data binding MvvM framework.
          * For more information {@link https://developer.android.com/tools/data-binding/guide.html}
