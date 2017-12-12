@@ -38,5 +38,6 @@ proguard/
 # Log Files
 *.log
 
-
-
+/build
+.idea
+*.iml
