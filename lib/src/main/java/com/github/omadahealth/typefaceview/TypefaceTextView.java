@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.databinding.BindingAdapter;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import java.util.Hashtable;
 /**
  * Created by stoyand & oliviergoutay on 4/7/14.
  */
-public class TypefaceTextView extends AppCompatTextView {
+public class TypefaceTextView extends TextView {
     /**
      * A hash we use to hold multiple typefaces for views
      */
@@ -59,7 +58,7 @@ public class TypefaceTextView extends AppCompatTextView {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public TypefaceTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleRes);
+        super(context, attrs, defStyleAttr, defStyleRes);
         loadAttributes(context, attrs);
     }
 
