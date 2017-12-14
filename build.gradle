@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         //Gradle
-        classpath 'com.android.tools.build:gradle:2.2.0-beta1'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         //Google Analytics
         classpath 'com.google.gms:google-services:3.0.0'
     }
