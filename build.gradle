@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
         //Gradle
@@ -15,5 +16,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
